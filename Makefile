@@ -1,4 +1,5 @@
 # Variaveis
+
 CC = g++
 EXTSRC = cpp
 EXTINC = h
