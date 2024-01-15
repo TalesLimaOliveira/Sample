@@ -1,6 +1,6 @@
 # Variaveis
-CC = g++
-EXTSRC = cpp
+CC = gcc
+EXTSRC = c
 EXTINC = h
 APPDIR = app
 BINDIR = bin
@@ -8,7 +8,7 @@ INCDIR = inc
 LIBDIR = lib
 OBJDIR = obj
 SRCDIR = src
-FLAGS = -O3 -Wall -Wextra -lstdc++
+FLAGS = -O3 -Wall -Wextra
 ECHO ?=
 APP ?= main
 
