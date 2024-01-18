@@ -9,8 +9,9 @@ LIBDIR = lib
 OBJDIR = obj
 SRCDIR = src
 FLAGS = -O3 -Wall -Wextra
-ECHO ?=
 APP ?= main
+#Let empty if you dont want Makefile msg
+ECHO ?= true
 
 # Verificação do nome do aplicativo
 ifeq ($(APP),)
@@ -31,13 +32,15 @@ all: clean folder exe
 
 # Criação dos diretórios
 folder:
+	$(if $(ECHO),@echo Makefile: Creating Folders)
 ifeq ($(OS),Windows_NT)
 	@ if not exist "$(BINDIR)" mkdir $(BINDIR)
 	@ if not exist "$(OBJDIR)" mkdir $(OBJDIR)
 else
-	@ if [ -d "$(BINDIR)" ]; then mkdir -p $(BINDIR); fi
-	@ if [ -d "$(OBJDIR)" ]; then mkdir -p $(OBJDIR); fi
+	@ mkdir -p $(BINDIR)
+	@ mkdir -p $(OBJDIR)
 endif
+	$(if $(ECHO),@echo Makefile: Folders Create)
 
 # Compilação do programa executável
 exe: objs
@@ -69,7 +72,7 @@ ifeq ($(OS),Windows_NT)
 	@ if exist "$(BINDIR)" rd /s /q $(BINDIR)
 	@ if exist "$(OBJDIR)" rd /s /q $(OBJDIR)
 else
-	@ if [ -d "$(BINDIR)" ]; then rm -rf $(BINDIR); fi
-	@ if [ -d "$(OBJDIR)" ]; then rm -rf $(OBJDIR); fi
+	@ rm -rf $(BINDIR);
+	@ rm -rf $(OBJDIR);
 endif
 	$(if $(ECHO),@echo Makefile: Cleaned Successfully)
