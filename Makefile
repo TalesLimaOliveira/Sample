@@ -8,10 +8,10 @@ INCDIR = inc
 LIBDIR = lib
 OBJDIR = obj
 SRCDIR = src
-FLAGS = -O3 -Wall -Wextra
+FLAGS = 
 APP ?= main
 #Let empty if you dont want Makefile msg
-ECHO ?= true
+ECHO ?=
 
 # Verificação do nome do aplicativo
 ifeq ($(APP),)

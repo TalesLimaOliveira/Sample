@@ -3,11 +3,14 @@
 #include <stdlib.h>
 #include <example.h>
 
-Person *create_person(char *name, int age){
-    Person *p = malloc(sizeof(Person));
-    strcpy(p->name, name);
+void create_person(Person *p){
+    //Person *p = malloc(sizeof(Person));
+    char name[64];
+    int age;
+    scanf("%63[^ ]%d", name, &age);
+    getchar();
     p->age = age;
-    return p;
+    strcpy(p->name, name);
 }
 
 void print_person(Person *p){

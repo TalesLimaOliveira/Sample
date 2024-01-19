@@ -8,15 +8,14 @@ typedef struct{
 
 /**
  * @brief Create a person object/struct
- * @param name -> The name of the person
- * @param age -> The age of the person
  * @return Person* with the name and age
  */
-Person *create_person(char *name, int age);
+void create_person(Person *p);
 
 /**
  * @brief print a person object (name, age)
  * @param p -> The person to print
  */
 void print_person(Person *p);
+
 #endif//EXAMPLE_H
